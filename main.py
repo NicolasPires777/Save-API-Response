@@ -19,7 +19,8 @@ ENV_CONFIG = {
     "SCHEDULE_TIME": os.getenv("SCHEDULE_TIME", "20:00:00"),
     "MAIL_USER": os.getenv("MAIL_AUTH_USER"),
     "MAIL_PASSWORD": os.getenv("MAIL_AUTH_PASS"),
-    "MAIL_RECIPIENTS": os.getenv("SCHEDULE_RECIPIENTS").split(",")  # Lista separada por vírgulas
+    "MAIL_RECIPIENTS": os.getenv("SCHEDULE_RECIPIENTS").split(","),  # Lista separada por vírgulas
+    "SUBJECT": os.getenv("SUBJECT")
 }
 
 def validate_env():
@@ -33,7 +34,7 @@ def send_email(filename):
         msg = MIMEMultipart()
         msg["From"] = ENV_CONFIG["MAIL_USER"]
         msg["To"] = ENV_CONFIG["MAIL_USER"]  # Remetente como destinatário visível
-        msg["Subject"] = f"Dados coletados - {datetime.now().strftime('%d/%m/%Y %H:%M')}"
+        msg["Subject"] = f"{ENV_CONFIG['SUBJECT']} - {datetime.now().strftime('%d/%m/%Y %H:%M')}"
         msg["Bcc"] = ", ".join(ENV_CONFIG["MAIL_RECIPIENTS"])  # Destinatários ocultos
 
         body = f"Arquivo JSON anexo: {filename}"
