@@ -1,21 +1,21 @@
-# API Save Response Automation
+# 📂 API Save Response Automation 🤖
 
-Este projeto automatiza a coleta de dados de uma API e o envio desses dados por e-mail em um horário agendado. Ele é útil para monitorar e compartilhar configurações ou dados atualizados de sistemas.
+Este projeto automatiza a coleta de dados de uma API e o envio desses dados por e-mail em um horário agendado. Ele é útil para monitorar e compartilhar configurações ou dados atualizados de sistemas. 📊📨
 
-## Funcionalidades
+## 🛠️ Funcionalidades
 
-- **Requisição HTTP**: Faz uma requisição GET para uma URL configurada.
-- **Salvamento de Dados**: Salva a resposta da API em um arquivo JSON com carimbo de data/hora.
-- **Agendamento**: Executa a tarefa diariamente em um horário específico.
-- **Envio de E-mail**: Envia o arquivo JSON gerado como anexo para uma lista de destinatários via e-mail.
+- **🌐 Requisição HTTP**: Faz uma requisição GET para uma URL configurada.
+- **💾 Salvamento de Dados**: Salva a resposta da API em um arquivo JSON com carimbo de data/hora.
+- **⏰ Agendamento**: Executa a tarefa diariamente em um horário específico.
+- **📤 Envio de E-mail**: Envia o arquivo JSON gerado como anexo para uma lista de destinatários via e-mail.
 
-## Pré-requisitos
+## 📋 Pré-requisitos
 
-- Python 3.x
-- Bibliotecas Python: `requests`, `schedule`, `python-dotenv`, `smtplib`
-- Conta de e-mail do Gmail para envio de e-mails (ou ajuste o SMTP para outro provedor).
+- 🐍 Python 3.x
+- 📚 Bibliotecas Python: `requests`, `schedule`, `python-dotenv`, `smtplib`
+- 📧 Conta de e-mail do Gmail para envio de e-mails (ou ajuste o SMTP para outro provedor).
 
-## Configuração
+## ⚙️ Configuração
 
 1. **Instale as dependências**:
    ```bash
@@ -42,15 +42,15 @@ Este projeto automatiza a coleta de dados de uma API e o envio desses dados por 
    python main.py
    ```
 
-## Como Funciona
+## 🚀 Como Funciona
 
 1. O script valida as variáveis de ambiente e carrega as configurações.
 2. Diariamente, no horário agendado (`SCHEDULE_TIME`), ele:
-   - Faz uma requisição GET para a URL configurada.
-   - Salva a resposta em um arquivo JSON com o nome no formato `response_AAAA-MM-DD_HH-MM-SS.json`.
-   - Envia o arquivo como anexo por e-mail para os destinatários configurados.
+   - 🌐 Faz uma requisição GET para a URL configurada.
+   - 💾 Salva a resposta em um arquivo JSON com o nome no formato `response_AAAA-MM-DD_HH-MM-SS.json`.
+   - 📤 Envia o arquivo como anexo por e-mail para os destinatários configurados.
 
-## Exemplo de Saída
+## 📄 Exemplo de Saída
 
 - **Arquivo JSON**:
   ```json
@@ -62,22 +62,22 @@ Este projeto automatiza a coleta de dados de uma API e o envio desses dados por 
   ```
 
 - **E-mail**:
-  - Assunto: `API Response - DD/MM/YYYY HH:MM`
-  - Corpo: `Arquivo JSON anexo: response_AAAA-MM-DD_HH-MM-SS.json`
-  - Anexo: Arquivo JSON gerado.
+  - 📧 Assunto: `API Response - DD/MM/YYYY HH:MM`
+  - 📝 Corpo: `Arquivo JSON anexo: response_AAAA-MM-DD_HH-MM-SS.json`
+  - 📎 Anexo: Arquivo JSON gerado.
 
-## Personalização
+## 🎨 Personalização
 
-- **SMTP**: Para usar outro provedor de e-mail, altere as configurações do SMTP no método `send_email`.
-- **Formato do JSON**: Ajuste o tratamento da resposta da API no método `fetch_and_save` conforme necessário.
+- **📧 SMTP**: Para usar outro provedor de e-mail, altere as configurações do SMTP no método `send_email`.
+- **📄 Formato do JSON**: Ajuste o tratamento da resposta da API no método `fetch_and_save` conforme necessário.
 
-## Observações
+## ⚠️ Observações
 
-- **Segurança**: Não compartilhe o arquivo `.env` ou credenciais de e-mail publicamente.
-- **Logs**: O script imprime logs no console para facilitar a depuração.
+- **🔒 Segurança**: Não compartilhe o arquivo `.env` ou credenciais de e-mail publicamente.
+- **📜 Logs**: O script imprime logs no console para facilitar a depuração.
 
-## Licença
+## 📜 Licença
 
-Este projeto é open-source. Sinta-se à vontade para utilizá-lo e modificá-lo conforme suas necessidades.
+Este projeto é open-source. Sinta-se à vontade para utilizá-lo e modificá-lo conforme suas necessidades. 🎉
 
----
+--- 
