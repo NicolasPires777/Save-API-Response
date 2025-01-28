@@ -1,6 +1,6 @@
-# Flight-Planner Configuration Automation
+# API Save Response Automation
 
-Este projeto automatiza a coleta de dados de uma API e o envio desses dados por e-mail em um horário agendado. Ele é útil para monitorar e compartilhar configurações ou dados atualizados de sistemas, como o Flight-Planner.
+Este projeto automatiza a coleta de dados de uma API e o envio desses dados por e-mail em um horário agendado. Ele é útil para monitorar e compartilhar configurações ou dados atualizados de sistemas.
 
 ## Funcionalidades
 
