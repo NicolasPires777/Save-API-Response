@@ -21,7 +21,8 @@ ENV_CONFIG = {
     "MAIL_PASSWORD": os.getenv("MAIL_AUTH_PASS"),
     "MAIL_RECIPIENTS": os.getenv("SCHEDULE_RECIPIENTS").split(","),
     "SUBJECT": os.getenv("SUBJECT"),
-    "MAX_RETRIES": int(os.getenv("MAX_RETRIES", "144"))  # 144 tentativas = 24 horas
+    "MAX_RETRIES": int(os.getenv("MAX_RETRIES", "144")),  
+    "ENABLE_EMAIL": os.getenv("ENABLE_EMAIL", False).capitalize()
 }
 
 def validate_env():
@@ -81,7 +82,12 @@ def fetch_and_save():
             with open(filename, 'w', encoding='utf-8') as file:
                 json.dump(response.json(), file, ensure_ascii=False, indent=4)
             print(f"Dados salvos em {filename}")
-            send_email(filename)
+            
+            # Verifica se o envio de e-mails está habilitado
+            if ENV_CONFIG["ENABLE_EMAIL"]:
+                send_email(filename)
+            else:
+                print("Envio de e-mails desabilitado.")
         except Exception as e:
             print(f"Erro ao salvar/enviar dados: {str(e)}")
     else:
@@ -96,6 +102,7 @@ def main():
     - Horário: {ENV_CONFIG["SCHEDULE_TIME"]}
     - Destinatários: {ENV_CONFIG["MAIL_RECIPIENTS"]}
     - Tentativas máximas: {ENV_CONFIG["MAX_RETRIES"]}
+    - Envio de e-mails: {"Habilitado" if ENV_CONFIG["ENABLE_EMAIL"] else "Desabilitado"}
     ''')
     
     schedule.every().day.at(ENV_CONFIG["SCHEDULE_TIME"]).do(fetch_and_save)
